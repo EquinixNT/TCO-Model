@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TCO Model (Total Cost of Ownership)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+  <link rel="stylesheet" href="tco.css">
+</head>
+<body>
+  <header class="equinix-header" id="equinixHeader">
+    <div class="equinix-logo">
+      <img src="assets/equinixlogo.png" alt="Equinix Logo" class="equinix-logo-img">
+    </div>
+    <nav class="equinix-nav" aria-label="Main navigation">
+      <a href="#" class="nav-link">Solutions</a>
+      <a href="#" class="nav-link">Services</a>
+      <a href="#" class="nav-link">Resources</a>
+      <a href="#" class="nav-link">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h2 id="tcoTitle">TCO Model (Total Cost of Ownership)</h2>
+    <p class="intro">The Equinix TCO (Total Cost of Ownership) model is a financial tool designed specifically to help buyers and owners calculate the direct and indirect costs of owning Equinix products and services. This model considers all costs associated with the acquisition, ownership, and maintenance of Equinix solutions throughout their entire lifecycle, providing a clear view of the true cost of Equinix ownership.</p>
+    <form id="tcoForm" autocomplete="off" style="margin-bottom: 0;" aria-labelledby="tcoTitle">
+      <div class="input-row">
+        <div class="input-group">
+          <label for="fteCount">FTE Count</label>
+          <input type="number" id="fteCount" placeholder="e.g. 4" min="0">
+        </div>
+        <div class="input-group">
+          <label for="fteArc">FTE ARC ($)</label>
+          <input type="text" id="fteArc" placeholder="e.g. 300000">
+        </div>
+        <div class="input-group">
+          <label for="savingsPct">Savings Percentage (%)</label>
+          <input type="number" id="savingsPct" placeholder="e.g. 25" min="0" max="100">
+        </div>
+        <div class="input-group">
+          <label for="deviceCount">Device Count</label>
+          <input type="number" id="deviceCount" placeholder="e.g. 1200" min="0">
+        </div>
+        <div class="input-group">
+          <label for="costPerDevice">Cost per Device ($)</label>
+          <input type="number" id="costPerDevice" placeholder="e.g. 900" min="0">
+        </div>
+      </div>
+      <button type="submit" id="calculateBtn" class="equinix-btn" aria-label="Calculate and chart TCO results">Calculate & Chart</button>
+    </form>
+
+    <div id="tcoResults" style="display:none;">
+      <h3 id="dynamicTitle" class="dynamic-title">
+        Repatration TCO: <span id="fteCountSpan">4</span>x FTE @ $<span id="arcSpan">260K</span> ARC @ <span id="savingsSpan">45%</span> savings w/ <span id="deviceCountSpan">1200</span>x devices, $<span id="costPerDeviceSpan">1400</span> per device
+      </h3>
+      <div class="chart-container" tabindex="0" aria-label="TCO Bar Chart">
+        <canvas id="tcoChart" width="800" height="400" role="img" aria-label="TCO Bar Chart"></canvas>
+      </div>
+      <h3 class="section-title">Repatriation Cost vs Hyperscaler Spend</h3>
+      <div class="chart-container" tabindex="0" aria-label="Repatriation Cost vs Hyperscaler Spend Line Chart">
+        <canvas id="lineChart" width="800" height="400" role="img" aria-label="Repatriation Cost vs Hyperscaler Spend Line Chart"></canvas>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="tco.js"></script>
+</body>
+</html>
