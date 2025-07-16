@@ -1,0 +1,19 @@
+
+# Ignore node modules and extensions
+node_modules/
+extensions/
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.bak
+
+# Ignore build artifacts
+dist/
+build/
